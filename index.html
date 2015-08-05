@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<script src="http://underscorejs.org/underscore.js"></script>
+		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script type="text/html" id="usersTmpl">
+			<table cellspacing='0' cellpadding='0' border='1' >
+				<% _.each(items,function(item,key,list){ %>
+					<% var f = item.id; %><!-- create more variables -->
+					<tr>
+						<td><%= key %></td>
+						<td class="<%= f %>"><%= item.id %></td>
+					</tr>
+				<% }); %>	
+			</table>
+		</script>
+	</head>
+	<body>
+		<div id="view" />
+	</body>		
+		<script src="./hyp.js"></script>
+	</html>
