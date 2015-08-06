@@ -8,14 +8,43 @@
 					<% var f = item.id; %><!-- create more variables -->
 					<tr>
 						<td><%= key %></td>
-						<td class="<%= f %>"><%= item.id %></td>
+						<td class="<%= f %>"><a href="#user.detail/<%= f %>"><%= item.id %></a></td>
 					</tr>
 				<% }); %>	
 			</table>
 		</script>
+		
+		<script type="text/html" id="userTmpl">
+			<% var f = items.id; %>
+			<div><%= items.id %></div>
+			<div><%= items.name %></div>
+			<div><%= items.lastname %></div>
+		</script>
+		
 	</head>
 	<body>
+	<a href="#">home</a>
+	<a href="#users.list">list of users</a>
+	
 		<div id="view" />
 	</body>		
 		<script src="./hyp.js"></script>
+		<script>
+		
+var usersListState = {
+	id: 'users.list',
+	changeOn: {id: '#users.list', evt: 'load'},
+	view: {id: '#users.list', target: '#view', template: '#usersTmpl'}
+};
+
+var userDetailsState = {
+	id: 'user.detail',
+	changeOn: {id: '#user.detail', evt: 'load'},
+	view: {id: '#user.detail',  target: '#view', template: '#userTmpl'}
+};
+
+hyp.init([usersListState,userDetailsState], function(userListState,userDetailsState) {
+
+});
+		</script>
 	</html>
